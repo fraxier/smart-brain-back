@@ -2,16 +2,13 @@ const express = require('express');
 const db = require('./dbconnection').knex
 
 const app = express();
-const port = 3000
+const port = 3001
 
-db.select('*').from('users').then(data => {
-  console.log(data)
-})
+// TODO show all users
 
+// TODO register a user
 
-app.get('/', (req, res) => {
-  res.send('<h1>Hello world!</h1>')
-})
+// TODO update a user score
 
 app.listen(port, () => {
   console.log(`Server started listening on port ${port}.`);

@@ -1,0 +1,8 @@
+CREATE TABLE users (
+    username VARCHAR (64), 
+    email VARCHAR (64), 
+    password VARCHAR (255), 
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+
+INSERT INTO users (username, email, password) VALUES ('bob', 'bobganon@gmail.com', 'password123')
