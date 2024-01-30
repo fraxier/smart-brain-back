@@ -27,9 +27,14 @@ app.get('/users', (req, res) => {
 // TODO register a user
 app.post('/register', (req, res) => {
 
-  db('users').insert(req.body)
+  const { username, email, password } = req.body;
 
-  return res.send('in progress')
+  db('users')
+    .returning('*')
+    .insert({ username, email, password, created: new Date() })
+    .then(data => {res.send(data) })
+    .catch(error => {res.status(400).json(error)})
+
 })
 
 // TODO update a user score
