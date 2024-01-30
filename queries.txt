@@ -1,8 +1,14 @@
 CREATE TABLE users (
-    username VARCHAR (64), 
+    id SERIAL PRIMARY KEY
+    username VARCHAR (64) NOT NULL, 
     email VARCHAR (64), 
     password VARCHAR (255), 
     created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)
+);
 
-INSERT INTO users (username, email, password) VALUES ('bob', 'bobganon@gmail.com', 'password123')
+ALTER TABLE users ALTER COLUMN username SET NOT NULL;
+ALTER TABLE users ADD id SERIAL PRIMARY KEY;
+
+INSERT INTO users (username, email, password) VALUES ('bob', 'bobganon@gmail.com', 'password123');
+
+DROP TABLE users;

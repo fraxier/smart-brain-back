@@ -4,6 +4,8 @@ const db = require('./dbconnection').knex
 const app = express();
 const port = 3001
 
+app.use(express.json())
+
 // TODO show all users
 app.get('/users', (req, res) => {
 
@@ -23,6 +25,12 @@ app.get('/users', (req, res) => {
 // restrict access to logged in user
 
 // TODO register a user
+app.post('/register', (req, res) => {
+
+  db('users').insert(req.body)
+
+  return res.send('in progress')
+})
 
 // TODO update a user score
 // restrict access to logged in user
